@@ -54,12 +54,12 @@ Body: json
 }
 `
 ###Realizar estorno
-Método: POST  
+Método: PUT  
 Path: /estorno  
 Content-Type: application/json   
 Body:
 `
-{ "id": "100235 68900001" }
+{ "id": "53383ab7-5735-4ec6-b5c7-9c29092d3634" }
 `
 
 

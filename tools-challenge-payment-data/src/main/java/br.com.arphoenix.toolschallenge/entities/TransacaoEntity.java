@@ -1,6 +1,5 @@
 package br.com.arphoenix.toolschallenge.entities;
 
-import br.com.arphoenix.toolschallenge.dto.PagamentoDTO;
 import lombok.Getter;
 import lombok.Setter;
 

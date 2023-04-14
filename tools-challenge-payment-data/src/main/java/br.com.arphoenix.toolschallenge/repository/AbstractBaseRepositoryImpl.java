@@ -1,11 +1,5 @@
 package br.com.arphoenix.toolschallenge.repository;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-
 import br.com.arphoenix.toolschallenge.entities.AbstractBaseEntity;
 import br.com.arphoenix.toolschallenge.service.AbstractBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Classe abastrata e genérica AbstractBaseRepositoryImpl que expoe a implementação da funcionalidadades comuns de um CRUD (create, recover, update,
@@ -29,8 +28,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class AbstractBaseRepositoryImpl<T extends AbstractBaseEntity, ID extends Serializable>
-		implements AbstractBaseService<T, ID> {
+public abstract class AbstractBaseRepositoryImpl<T extends AbstractBaseEntity, ID extends Serializable>
+		implements AbstractBaseService<T,ID> {
 
 	private AbstractBaseRepository<T, ID> abstractBaseRepository;
 

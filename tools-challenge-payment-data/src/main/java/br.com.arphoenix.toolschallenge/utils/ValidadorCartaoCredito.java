@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ValidadorCartaoCredito {
 
-    public boolean validate(String creditCardNumber) {
+    public static Boolean validate(String creditCardNumber) {
         int sum = 0;
         boolean alternate = false;
         for (int i = creditCardNumber.length() - 1; i >= 0; i--) {
