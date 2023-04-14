@@ -1,6 +1,5 @@
 package br.com.arphoenix.toolschallenge.dto.common;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 

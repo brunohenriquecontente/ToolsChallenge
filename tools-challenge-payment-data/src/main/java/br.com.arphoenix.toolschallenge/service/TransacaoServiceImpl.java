@@ -1,6 +1,5 @@
 package br.com.arphoenix.toolschallenge.service;
 
-import br.com.arphoenix.toolschallenge.dto.common.IdGenericoDTO;
 import br.com.arphoenix.toolschallenge.dto.request.PagamentoRequestDTO;
 import br.com.arphoenix.toolschallenge.dto.response.PagamentoResponseDTO;
 import br.com.arphoenix.toolschallenge.entities.TransacaoEntity;
@@ -40,14 +39,31 @@ public class TransacaoServiceImpl extends AbstractBaseRepositoryImpl<TransacaoEn
 
         TransacaoEntity transacao = modelMapper.map(pagamentoRequestDTO.getTransacao(), TransacaoEntity.class);
 
+        // TODO:
+        // Verificar se quantidade de parcelas igual 1 então tipo de pagamento não pode ser parcelado
+        // if(pagamentoRequestDTO.getTransacao().getFormaPagamento().getParcelas().equals(1)
+        //      && (pagamentoRequestDTO.getTransacao().getFormaPagamento().getTipo().equals(TipoPagamento.PARCELADOEMISSOR)
+        //     || pagamentoRequestDTO.getTransacao().getFormaPagamento().getTipo().equals(TipoPagamento.PARCELADOLOJA)))
+        //    throw new TipoPagamentoInvalidoException();
+
+        // TODO:
+        // Verificar se quantidade de parcelas diferente de 1, então pagamento só pode ser a vista
+        // if(!pagamentoRequestDTO.getTransacao().getFormaPagamento().getParcelas().equals(1)
+        //        && (pagamentoRequestDTO.getTransacao().getFormaPagamento().getTipo().equals(TipoPagamento.AVISTA)))
+        //    throw new TipoPagamentoInvalidoException();
+
+        // Valida o cartão de crédito
         if (!ValidadorCartaoCredito.validate(pagamentoRequestDTO.getTransacao().getCartao()))
             throw new CartaoCreditoInvalidoException();
+
         transacao.getDescricao().setStatus(StatusPagamento.AUTORIZADO);
+        // Gera número de NSU
         transacao.getDescricao().setNsu(GeradorNSU.gerarNSU());
+
+        // Gera código de autorização
         transacao.getDescricao().setCodigoAutorizacao(GeradorCodigoAutorizacao.gerarCodigoAutorizacao());
 
         transacao = transacaoRepository.save(transacao);
-
         return modelMapper.map(transacao, PagamentoResponseDTO.class);
     }
     
@@ -71,9 +87,7 @@ public class TransacaoServiceImpl extends AbstractBaseRepositoryImpl<TransacaoEn
 
     @Override
     public List<PagamentoResponseDTO> getPagamentosEstornados() {
-
         List<TransacaoEntity> transacoes = transacaoRepository.findAllByDescricaoStatus(StatusPagamento.CANCELADO);
-
         List<PagamentoResponseDTO> pagamentosDTO = new ArrayList<>();
         for (TransacaoEntity transacao : transacoes) {
             PagamentoResponseDTO pagamentoDTO = modelMapper.map(transacao, PagamentoResponseDTO.class);

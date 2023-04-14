@@ -1,6 +1,5 @@
 package br.com.arphoenix.toolschallenge.service;
 
-import br.com.arphoenix.toolschallenge.dto.common.IdGenericoDTO;
 import br.com.arphoenix.toolschallenge.dto.request.PagamentoRequestDTO;
 import br.com.arphoenix.toolschallenge.dto.response.PagamentoResponseDTO;
 import br.com.arphoenix.toolschallenge.entities.TransacaoEntity;

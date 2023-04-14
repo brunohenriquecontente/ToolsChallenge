@@ -1,6 +1,5 @@
 package br.com.arphoenix.toolschallenge.dto.response;
 
-import br.com.arphoenix.toolschallenge.dto.common.IdGenericoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

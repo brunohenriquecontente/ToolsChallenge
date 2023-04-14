@@ -1,6 +1,5 @@
 package br.com.arphoenix.toolschallenge.controller;
 
-import br.com.arphoenix.toolschallenge.dto.common.IdGenericoDTO;
 import br.com.arphoenix.toolschallenge.dto.response.PagamentoResponseDTO;
 import br.com.arphoenix.toolschallenge.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;

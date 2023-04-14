@@ -1,7 +1,6 @@
 package br.com.arphoenix.toolschallenge.dto.request;
 
 import br.com.arphoenix.toolschallenge.dto.common.FormaPagamentoDTO;
-import br.com.arphoenix.toolschallenge.dto.common.IdGenericoDTO;
 import lombok.Getter;
 import lombok.Setter;
 

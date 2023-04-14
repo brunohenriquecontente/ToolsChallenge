@@ -18,7 +18,8 @@ public class DescricaoEntity extends AbstractBaseEntity{
     @Column(nullable = false)
     private String valor;
 
-    @Column
+    // TODO:Adicionar validação data hora
+    @Column(nullable = false)
     private LocalDateTime dataHora;
 
     @Column(nullable = false)

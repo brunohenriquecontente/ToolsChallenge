@@ -41,4 +41,5 @@ public class ControllerExceptionHandler {
         return new ResponseEntity<>(new JSONObject().put(MSG, "Transação não encontrada").put(CODE, "NOT_FOUND").toString(), HttpStatus.NOT_FOUND);
     }
 
+
 }
