@@ -1,39 +1,38 @@
-#ToolsChallenge
+# ToolsChallenge
 
-Esta é uma aplicação para realizar pagamentos e estornar pagamentos.
-Como executar?
+#### Esta é uma aplicação para realizar pagamentos e estornar pagamentos.
+
+## Como executar?
 Para executar este projeto em sua máquina, é necessário ter instalado os seguintes requisitos:
 
-Java 8 ou superior
-Maven 3.6 ou superior
-PostgreSQL 13 ou superior
-Para executar o projeto:
+- Java 8 ou superior  
+- Maven 3.6 ou superior  
+- PostgreSQL 13 ou superior  
 
-Configure as seguintes variáveis de ambiente:
+#### Para executar o projeto:
 
-ENVIRONMENT: dev (desenvolvimento), prod (produção) ou test (teste)
-POSTGRES_HOST: nome do host e porta do banco de dados
-POSTGRES_DB: nome do banco de dados
-POSTGRES_USER: nome do usuário do banco de dados
-POSTGRES_PASSWORD: senha do usuário do banco de dados
-POSTGRES_SCHEMA: nome do schema
-Clone o repositório: git clone https://github.com/brunohenriquecontente/ToolsChallenge.git
+- Configure as seguintes variáveis de ambiente:
 
-Navegue até a pasta raiz do projeto: cd ToolsChallenge
+ENVIRONMENT: dev (desenvolvimento), prod (produção) ou test (teste)  
+POSTGRES_HOST: nome do host e porta do banco de dados  
+POSTGRES_DB: nome do banco de dados  
+POSTGRES_USER: nome do usuário do banco de dados  
+POSTGRES_PASSWORD: senha do usuário do banco de dados  
+POSTGRES_SCHEMA: nome do schema  
 
-Execute o comando Maven para construir o projeto: mvn clean package
+Clone o repositório: git clone `https://github.com/brunohenriquecontente/ToolsChallenge.git`
 
-Inicie o aplicativo pela classe ToolschallengeApplication.java
+- Navegue até a pasta raiz do projeto: cd ToolsChallenge
+- Execute o comando Maven para construir o projeto: mvn clean package
+- Inicie o aplicativo pela classe ToolschallengeApplication.java
 
-Endpoints
-Realizar pagamento
-Método: POST
-Path: /pagamento
-Content-Type: application/json
-Body:
-json
-Copy code
-{
+### Endpoints  
+#### Realizar pagamento  
+Método: **POST**  
+Path: /pagamento  
+Content-Type: application/json  
+Body:  
+`{
 "transacao": {
 "cartao": "4444 **** 1234",
 "id": "100023568900001",
@@ -48,12 +47,11 @@ Copy code
 }
 }
 }
-Resposta de sucesso:
-Código de resposta: 200 OK
-Body: JSON
-json
-Copy code
-{
+`
+#### Resposta de sucesso:  
+Código de resposta: **200 OK**  
+Body: JSON   
+`{
 "transacao": {
 "cartao": "4444 **** 1234",
 "id": "100023568900001",
@@ -71,22 +69,14 @@ Copy code
 }
 }
 }
-Buscar transação por id
-Método: GET
-Path: /pagamento/{id}
-Content-Type: application/json
-Resposta de sucesso:
-Código de resposta: 200 OK
-Body: JSON
-json
-
-###Buscar transação por id
-Método: GET  
-Path: /pagamento/{id}
-Content-Type: application/json
-Resposta de sucesso:
-Código de resposta: 200 OK
-Body: json
+`
+### Buscar transação por id  
+Método: **GET**  
+Path: /pagamento/{id}  
+Content-Type: application/json  
+#### Resposta de sucesso:
+Código de resposta: **200 OK**  
+Body: JSON  
 `
 {
 "id": "42622edf-06e0-4c74-aff7-5ad26da4a4a9",
@@ -109,13 +99,13 @@ Body: json
 }
 }`
 
-###Buscar todos pagamentos
+### Buscar todos pagamentos
 Método: GET  
-Path: /pagamento
-Content-Type: application/json
-Resposta de sucesso:
-Código de resposta: 200 OK
-Body: json
+Path: /pagamento  
+Content-Type: application/json  
+#### Resposta de sucesso:  
+Código de resposta: **200 OK**  
+Body: JSON  
 `
 [
 {
@@ -161,19 +151,18 @@ Body: json
 ]
 `
 
-Resposta de sucesso:
-Código de resposta: 200 OK
-Body: json
+#### Resposta de sucesso:
+Código de resposta: **200 OK**  
+Body: JSON  
 
-###Realizar estorno
-Método: PUT  
-Path: /estorno/{id}
-Content-Type: application/json
+### Realizar estorno
+Método: **PUT**  
+Path: /estorno/{id}  
+Content-Type: application/json  
 
-Resposta de sucesso:
-Código de resposta: 200 OK
-Body: json  
-
+#### Resposta de sucesso:  
+Código de resposta: **200 OK**  
+Body: JSON  
 `{
     "transacao": {
         "cartao": "4444 **** 1234",
