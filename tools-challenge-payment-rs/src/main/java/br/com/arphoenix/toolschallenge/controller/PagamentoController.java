@@ -31,8 +31,8 @@ public class PagamentoController {
         return ResponseEntity.ok(pagamentoResponse);
     }
 
-    @GetMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<PagamentoResponseDTO>>findAll(@RequestBody PagamentoRequestDTO pagamentoRequestDTO){
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<List<PagamentoResponseDTO>>findAllTransacoes(){
         List<PagamentoResponseDTO> listPagamentoResponse  = transacaoService.findAllTransacoes();
         return ResponseEntity.ok(listPagamentoResponse);
     }

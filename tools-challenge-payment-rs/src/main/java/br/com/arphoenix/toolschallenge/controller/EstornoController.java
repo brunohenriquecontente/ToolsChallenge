@@ -20,7 +20,7 @@ public class EstornoController {
 
     // Buscar estornos
     @GetMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<PagamentoResponseDTO>> findAll(){
+    public ResponseEntity<List<PagamentoResponseDTO>> getPagamentosEstornados(){
         List<PagamentoResponseDTO> listPagamentoResponse = transacaoService.getPagamentosEstornados();
         return ResponseEntity.ok(listPagamentoResponse);
     }

@@ -80,19 +80,8 @@ public class TransacaoServiceImpl extends AbstractBaseRepositoryImpl<TransacaoEn
             pagamentosDTO.add(pagamentoDTO);
         }
         return pagamentosDTO;
-
     }
 
-    public List<PagamentoResponseDTO> getTransacoesEstornadas() {
-        List<TransacaoEntity> transacoes = transacaoRepository.findAll();
-
-        List<PagamentoResponseDTO> pagamentosDTO = new ArrayList<>();
-        for (TransacaoEntity transacao : transacoes) {
-            PagamentoResponseDTO pagamentoDTO = modelMapper.map(transacao, PagamentoResponseDTO.class);
-            pagamentosDTO.add(pagamentoDTO);
-        }
-        return pagamentosDTO;
-    }
 
     @Override
     public PagamentoResponseDTO updateById(UUID id) {

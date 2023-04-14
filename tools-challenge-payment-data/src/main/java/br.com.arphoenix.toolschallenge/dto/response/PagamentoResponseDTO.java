@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PagamentoResponseDTO extends IdGenericoDTO implements Serializable {
+public class PagamentoResponseDTO implements Serializable {
     private static final long serialVersionUID = -3830127987671260359L;
 
     private TransacaoResponseDTO transacao;
