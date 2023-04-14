@@ -19,5 +19,5 @@ public interface TransacaoService extends AbstractBaseService<TransacaoEntity, U
 
     public List<PagamentoResponseDTO> getPagamentosEstornados() ;
 
-    public PagamentoResponseDTO updateById(IdGenericoDTO id);
+    public PagamentoResponseDTO updateById(UUID id);
 }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/estorno")
@@ -25,9 +26,9 @@ public class EstornoController {
     }
 
     // Solicitar estorno
-    @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<PagamentoResponseDTO> update(@RequestBody IdGenericoDTO idGenericoDTO){
-        PagamentoResponseDTO pagamentoResponseDTO = transacaoService.updateById(idGenericoDTO);
+    @PutMapping(path = "/{id}", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<PagamentoResponseDTO> update(@PathVariable UUID id){
+        PagamentoResponseDTO pagamentoResponseDTO = transacaoService.updateById(id);
         return ResponseEntity.ok(pagamentoResponseDTO);
     }
 }

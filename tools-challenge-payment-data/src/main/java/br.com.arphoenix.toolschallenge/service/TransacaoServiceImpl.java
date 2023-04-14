@@ -95,8 +95,8 @@ public class TransacaoServiceImpl extends AbstractBaseRepositoryImpl<TransacaoEn
     }
 
     @Override
-    public PagamentoResponseDTO updateById(IdGenericoDTO idGenericoDTO) {
-        TransacaoEntity transacao = transacaoRepository.findById(idGenericoDTO.getId()).orElseThrow(() -> new TransacaoNotFoundException(idGenericoDTO.getId()));
+    public PagamentoResponseDTO updateById(UUID id) {
+        TransacaoEntity transacao = transacaoRepository.findById(id).orElseThrow(() -> new TransacaoNotFoundException(id));
         transacao.getDescricao().setStatus(StatusPagamento.CANCELADO);
         transacao = transacaoRepository.save(transacao);
         return modelMapper.map(transacao, PagamentoResponseDTO.class);

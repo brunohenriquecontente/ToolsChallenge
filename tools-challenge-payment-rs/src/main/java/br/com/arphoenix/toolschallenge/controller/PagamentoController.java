@@ -25,7 +25,7 @@ public class PagamentoController {
         return ResponseEntity.ok(pagamentoResponseDTO);
     }
 
-    @GetMapping(path = "/pagamentos/{id}", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/{id}", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<PagamentoResponseDTO>findById(@PathVariable UUID id){
         PagamentoResponseDTO pagamentoResponse  = transacaoService.findTransacaoById(id);
         return ResponseEntity.ok(pagamentoResponse);
